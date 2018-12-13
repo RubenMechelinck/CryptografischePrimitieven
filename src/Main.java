@@ -5,4 +5,12 @@ public class Main {
         Person person1Fake = new Person("Peeter","Roeselare", "000");
 
     }
+
+
+
+
+    public void NaarByteArray(Person person){
+        
+    }
+
 }
