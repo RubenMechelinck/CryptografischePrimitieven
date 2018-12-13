@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class Person implements Serializable{
     private static final long serialVersionUID = 1;
@@ -72,6 +74,22 @@ public class Person implements Serializable{
             return null;
         }
     }
+
+    public byte[] hashing() {
+        byte[] bytes = getBytes();
+        MessageDigest digest = null;
+        try {
+            digest = MessageDigest.getInstance("SHA-256");
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        byte[] hash = digest.digest(bytes);
+
+        return hash;
+    }
+
+
+
 
     public String toString()
     {
